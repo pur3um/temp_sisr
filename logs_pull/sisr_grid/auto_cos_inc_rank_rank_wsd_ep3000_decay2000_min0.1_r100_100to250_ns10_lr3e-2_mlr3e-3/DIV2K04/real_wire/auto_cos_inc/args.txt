@@ -1,0 +1,62 @@
+image: DIV2K_train_HR/0004.png
+epochs: 3000
+log_n_epochs: 500
+seed: 42
+log_image_evolution: False
+optimizer: auto_cos_inc
+lr: 0.03
+adam_weight_decay: 0.0
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_eps: 1e-08
+muon_weight_decay: 0.0
+muon_aux_weight_decay: 0.0
+muon_lr: 0.003
+muon_momentum: 0.95
+muon_ns_steps: 10
+muon_no_nesterov: False
+optimize_first_layer_with_muon: False
+rank: 100
+rank_start: 100
+rank_end: 250
+rank_warmup_steps: 2000
+rank_oversample: 4
+lowrank_rescale: False
+lowrank_eps: 1e-06
+small_ns_bfloat16: False
+auto_init_rank_start: False
+init_probe_steps: 8
+init_energy: 0.9
+init_round_multiple: 8
+lbfgs_max_iter: 20
+lbfgs_history_size: 100
+scheduler: rank_wsd
+T_max: 5000
+cosine_eta_min: 1e-06
+step_size: 500
+gamma: 0.9
+rank_wsd_warmup_steps: 0
+rank_wsd_decay_start_step: 2000
+rank_wsd_min_lr_ratio: 0.1
+rank_wsd_base_N_rand: None
+model: real_wire
+num_layers: 5
+hidden_dim: 300
+mapping_size: 128
+fourier_sigma: 10.0
+siren_omega: [40.0, 40.0, 40.0, 40.0]
+finer_omega: [40.0, 40.0, 40.0, 40.0]
+finer_init_bias: False
+finer_bias_scale: 0.7071067811865475
+gauss_scale: [0.0236, 0.0236, 0.0236, 0.0236]
+wire_sigma: [10.0, 10.0, 10.0, 10.0]
+wire_omega: [20.0, 20.0, 20.0, 20.0]
+task: super_resolution
+scale_factor: 4
+inpainting_ratio: 1.0
+sr_train_chunk_size: 65536
+sr_eval_chunk_size: 262144
+folder_name: logs/sisr_grid/auto_cos_inc_rank_rank_wsd_ep3000_decay2000_min0.1_r100_100to250_ns10_lr3e-2_mlr3e-3/DIV2K04
+save_model: False
+save_final_reconstruction: False
+skip_lpips: True
